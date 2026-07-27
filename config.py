@@ -1,5 +1,9 @@
 # This file is included in the application config for both the UI and workers.
 
+# This is the pack format version. It must be in the range of versions supported
+# by the version of DTANM you're using.
+PACK_FORMAT_VERSION = "4.0"
+
 # This is the executable that is run to test the application. If the user does
 # not either provide an executable with this name or a makefile to create one,
 # the user's program will not be run.
@@ -41,3 +45,6 @@ TIMEZONE="America/Chicago"
 RATE_LIMIT_QUANTITY = 6
 RATE_LIMIT_SECONDS = 60
 
+# This can be used to disable / enable link placeholder formatting on the
+# instructions page. Assumed True if not specified.
+#ENABLE_INST_FORMATTING = False

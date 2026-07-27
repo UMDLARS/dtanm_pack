@@ -35,3 +35,30 @@ to `./<filename>`.
 
 We do _not_ currently support nested directories of files in the documentation
 folder.
+
+### Link placeholders
+You may want to include links to other pages from your instructions document,
+but hardcoding them doesn't work great if you want to use the same pack on
+different instances running at different domains / IPs.
+We support embedding link placeholders that will be replaced with links to
+the corresponding pages under the accessed domain name / IP address.
+Currently, the supported placeholders are:
+- DTANM_LINK_INSTRUCTIONS: `/instructions/index`
+- DTANM_LINK_PROGRAM: `/program`
+- DTANM_LINK_MY_SCORE: `/teams/me`
+- DTANM_LINK_TEAMS: `/teams`
+- DTANM_LINK_ATTACKS: `/attacks`
+- DTANM_LINK_STATS: `/stats`
+- DTANM_LINK_ADMIN: `/admin`
+
+Placeholder replacement uses jinja2 and looks like:
+```
+{{DTANM_LINK_INSTRUCTIONS}}
+```
+
+This would produce `http://76.65.84.69/instructions/index` if accessed through
+a DTANM instance at `76.65.84.69`
+
+Formatting can be disabled by setting `ENABLE_INST_FORMATTING = False`,
+it's enabled by default on v4.0 packs. On v3.0 packs it's ignored and assumed
+False.

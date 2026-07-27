@@ -24,8 +24,6 @@ COPY . .
 
 RUN make
 
-# We don't need an entrypoint for this since it's just used as a base container
-# for containers to be built per attack. This is simply an intermediate layer to
-# allow us to cache the build step.
-ENTRYPOINT /bin/false
+# We don't need an entrypoint here since it will be setup & appended here by
+# the DTANM backend.
 
